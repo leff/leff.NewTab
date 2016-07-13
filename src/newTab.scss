@@ -1,0 +1,144 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+body { 
+  background: #DDD;
+}
+
+.text-outline {
+  color: #FFF;
+  text-shadow:
+  -1px -1px 0 rgba(0,0,0,0.4),
+  1px -1px 0 rgba(0,0,0,0.4),
+  -1px 1px 0 rgba(0,0,0,0.4),
+  1px 1px 0 rgba(0,0,0,0.4);  
+}
+
+.columns {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: flex-start;
+
+  .column {
+    flex: 0 1 40vw;
+    align-self: auto;
+    text-align: center;
+    margin: 20px;
+  }
+}
+
+$clockWidth: 40vw;
+$secondsWidth: $clockWidth/2;
+$secondsPerLine: 15;
+$secondWidth: 100%/$secondsPerLine;
+
+.clock {
+  position: relative;
+  height: $clockWidth;
+  background-color: #FFF;
+
+  .image {
+    background-color: #FFD;
+    background-size: cover;
+    background-position: 50% 50%;
+
+    position: absolute;
+    width: 50%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .timezone {
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    font-size: 3vw;
+    font-weight: 200;
+
+    margin: 0 auto;
+    color: black;
+    padding: 8px;
+    border-radius:  8px 8px 0 0;
+  }
+
+  .time {
+    position: absolute;
+
+    top: 40%;
+    left: 50%;
+
+    &>* {
+      font-size: 5vw;
+    }
+    .time-hm {
+      font-weight: 100;
+      font-size: 7.5vw;
+      font-family: Helvetica Neue, Helvetica, sans-serif;
+    }
+  }
+  .time-sa {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    width: $secondsWidth;
+  }
+  .second {
+    $secondBorderWidth: 2px;
+    display: inline-block;
+    width: calc(#{$secondWidth} - #{$secondBorderWidth * 2});
+    height: calc((#{$secondsWidth} / #{$secondsPerLine}) - #{$secondBorderWidth * 2});
+    border-width: 0 $secondBorderWidth;
+    border-color: #FFF;
+    border-style: solid;
+    opacity: .25;
+
+    &.is-on {
+      opacity: 1;
+    }
+
+    @for $i from 1 through 15 {
+      &.second-#{$i} {
+        $hueVal: 270 + ($i * 2);
+        background-color: hsl($hueVal, 100%, 50%);
+      }
+    }
+    @for $i from 1 through 15 {
+      &.second-#{$i+15} {
+        $hueVal: 240 + ($i * 2);
+        background-color: hsl($hueVal, 100%, 50%);
+      }
+    }
+    @for $i from 1 through 15 {
+      &.second-#{$i+30} {
+        $hueVal: 210 + ($i * 2);
+        background-color: hsl($hueVal, 100%, 50%);
+      }
+    }
+    @for $i from 1 through 15 {
+      &.second-#{$i+45} {
+        $hueVal: 180 + ($i * 2);
+        background-color: hsl($hueVal, 100%, 50%);
+      }
+    }
+  }
+  
+
+  .date {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+
+    color: black;
+    padding: 8px;
+  }
+}
+
+

@@ -1,0 +1,12 @@
+{
+  "manifest_version": 2,
+
+  "name": "leff.newTab",
+  "version": "0.1",
+  "author": "Jason Brackins",
+  "description": "New tab screen with world clock",
+
+  "chrome_url_overrides" : {
+    "newtab": "newTab.html"
+  }
+}

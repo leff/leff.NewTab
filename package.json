@@ -1,0 +1,21 @@
+{
+  "name": "leff.newtab",
+  "version": "0.0.1",
+  "description": "Chrome new tab extension that shows a world clock",
+  "main": "gulpfile.js",
+  "author": "jason brackins",
+  "license": "ISC",
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-preset-es2015": "^6.9.0",
+    "del": "^2.2.1",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-pug": "^3.0.3",
+    "gulp-sass": "^2.3.2"
+  },
+  "dependencies": {
+    "jquery": "^3.1.0",
+    "moment-timezone": "^0.5.4"
+  }
+}
